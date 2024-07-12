@@ -1,0 +1,11 @@
+/* width: "24px"; height: "24px"; border-radius: "50%"; box-shadow: "rgba(0, 0, 0, 0.4) 0px 0px 0px 1px inset"; background-color: "rgb(244, 170, 248)"; */
+/* background-image: radial-gradient(at 66% 77%, rgb(36, 31, 164) 0px, transparent 50%), radial-gradient(at 29% 97%, rgb(17, 177, 128) 0px, transparent 50%), radial-gradient(at 99% 86%, rgb(162, 251, 41) 0px, transparent 50%), radial-gradient(at 29% 88%, rgb(205, 164, 153) 0px, transparent 50%); */
+
+.tr-style {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: inset rgba(0, 0, 0, 0.4) 0px 0px 0px 1px;
+    background-color: rgb(244, 170, 248);
+    background-image: radial-gradient(at 66% 77%, rgb(36, 31, 164) 0px, transparent 50%), radial-gradient(at 29% 97%, rgb(17, 177, 128) 0px, transparent 50%), radial-gradient(at 99% 86%, rgb(162, 251, 41) 0px, transparent 50%), radial-gradient(at 29% 88%, rgb(205, 164, 153) 0px, transparent 50%);
+}
