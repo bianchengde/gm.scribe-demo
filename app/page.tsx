@@ -263,7 +263,6 @@ export default function Home() {
               <div className="ml-6 mt-3 hidden md:block">
                 <img
                   alt="The Machine by Ismahelio"
-                  fetchpriority="high"
                   width="500"
                   height="579.6703296703297"
                   decoding="async"
@@ -438,7 +437,7 @@ export default function Home() {
                             </tr>
                             {arrowHidden && item.sender === currentAddress && (
                               <tr className="bg-neutral-50 transition ease-in duration-100">
-                                <td colspan="7" className="border-tx">
+                                <td className="border-tx">
                                   <table className="w-full font-mono text-xs text-neutral-500">
                                     <tbody>
                                       <tr>
@@ -508,7 +507,6 @@ export default function Home() {
                                           Total unconfirmed
                                         </td>
                                         <td
-                                          colspan="4"
                                           className="border-t-2 border-black/10 px-1 py-1.5 pt-2 md:px-2"
                                         >
                                           0
@@ -519,7 +517,6 @@ export default function Home() {
                                           Total confirmed
                                         </td>
                                         <td
-                                          colspan="4"
                                           className="px-1 py-1.5 md:px-2"
                                         >
                                           0.004
@@ -530,7 +527,6 @@ export default function Home() {
                                           Total Bid
                                         </td>
                                         <td
-                                          colspan="4"
                                           className="px-1 py-1.5 md:px-2"
                                         >
                                           0.004
@@ -725,7 +721,7 @@ export default function Home() {
                           </tr>
                         )} */}
                         <tr>
-                          <td colspan="6" className="border-y bg-red-700">
+                          <td className="border-y bg-red-700">
                             <div className="text-center text-xs font-medium uppercase text-white">
                               cut-off
                             </div>
