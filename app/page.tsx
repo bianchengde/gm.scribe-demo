@@ -4,7 +4,7 @@ import styles from "./style.module.css";
 import * as React from "react";
 import dayjs from "dayjs";
 import { useState } from "react";
-import Wallet from 'sats-connect'
+import Wallet from "sats-connect";
 
 import { data } from "./data";
 export default function Home() {
@@ -25,8 +25,8 @@ export default function Home() {
   };
 
   const connectWallet = async () => {
-    const res = await Wallet.request('wallet_requestPermissions', undefined);
-  }
+    const res = await Wallet.request("wallet_requestPermissions", undefined);
+  };
 
   return (
     <>
@@ -437,7 +437,7 @@ export default function Home() {
                             </tr>
                             {arrowHidden && item.sender === currentAddress && (
                               <tr className="bg-neutral-50 transition ease-in duration-100">
-                                <td className="border-tx">
+                                <td colSpan={7} className="border-tx">
                                   <table className="w-full font-mono text-xs text-neutral-500">
                                     <tbody>
                                       <tr>
@@ -460,7 +460,9 @@ export default function Home() {
                                       <tr className="hover:bg-neutral-300/10">
                                         <td className="py-2 px-1 md:px-2 border-t border-black/5 md:pl-4">
                                           <span className="">
-                                            {dayjs(item?.txs[0].confirmedAt * 1000).format('DD/MM/YYYY HH:mm:ss')}
+                                            {dayjs(
+                                              item?.txs[0].confirmedAt * 1000
+                                            ).format("DD/MM/YYYY HH:mm:ss")}
                                           </span>
                                         </td>
                                         <td className="border-t border-black/5 px-1 py-2 md:px-2">
@@ -507,6 +509,7 @@ export default function Home() {
                                           Total unconfirmed
                                         </td>
                                         <td
+                                          colSpan={4}
                                           className="border-t-2 border-black/10 px-1 py-1.5 pt-2 md:px-2"
                                         >
                                           0
@@ -517,6 +520,7 @@ export default function Home() {
                                           Total confirmed
                                         </td>
                                         <td
+                                          colSpan={4}
                                           className="px-1 py-1.5 md:px-2"
                                         >
                                           0.004
@@ -527,6 +531,7 @@ export default function Home() {
                                           Total Bid
                                         </td>
                                         <td
+                                          colSpan={4}
                                           className="px-1 py-1.5 md:px-2"
                                         >
                                           0.004
@@ -539,189 +544,8 @@ export default function Home() {
                             )}
                           </>
                         ))}
-                        {/* <tr
-                          className="cursor-pointer transition duration-500 ease-in-out hover:bg-black/5"
-                          onClick={showDetail}
-                        >
-                          <td className="w-6 border-t py-2 pl-2">
-                            {!arrowHidden ? (
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                className="lucide lucide-chevron-down size-4 text-neutral-400"
-                              >
-                                <path d="m6 9 6 6 6-6"></path>
-                              </svg>
-                            ) : (
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                className="lucide lucide-chevron-up size-4 text-neutral-400"
-                              >
-                                <path d="m18 15-6-6-6 6"></path>
-                              </svg>
-                            )}
-                          </td>
-                          <td className="border-t p-2">
-                            <div className="flex items-center">
-                              <div className="mr-2">
-                                <div className={styles["tr-style"]}></div>
-                              </div>
-                              <div className="font-mono md:hidden">
-                                bc1p5…tpe
-                              </div>
-                              <div className="hidden font-mono md:block">
-                                bc1p532nwe08kkr5sqek8jsv60mh5mhrw8pn8nd562jnm848an0hezeqag9tpe
-                              </div>
-                            </div>
-                          </td>
-                          <td className="border-t p-2 font-mono">
-                            <div>0.004</div>
-                          </td>
-                          <td className="hidden border-t p-2 text-right font-mono md:table-cell">
-                            <div>$228.30</div>
-                          </td>
-                          <td className="border-t p-2 text-right font-mono">
-                            <div>1x</div>
-                          </td>
-                          <td className="border-t p-2 text-right">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 24 24"
-                              fill="currentColor"
-                              aria-hidden="true"
-                              data-slot="icon"
-                              className="ml-2 inline size-5 text-green-700/90"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-                                clip-rule="evenodd"
-                              ></path>
-                            </svg>
-                          </td>
-                        </tr> */}
-                        {/* {arrowHidden && (
-                          <tr className="bg-neutral-50 transition ease-in duration-100">
-                            <td colspan="7" className="border-tx">
-                              <table className="w-full font-mono text-xs text-neutral-500">
-                                <tbody>
-                                  <tr>
-                                    <th className="p-1 md:p-2 text-left font-medium uppercase md:pl-4">
-                                      Confirmed at
-                                    </th>
-                                    <th className="p-1 text-left font-medium uppercase md:p-2">
-                                      BTC
-                                    </th>
-                                    <th className="hidden p-1 text-left font-medium uppercase md:table-cell md:p-2">
-                                      USD
-                                    </th>
-                                    <th className="p-1 text-left font-medium uppercase md:p-2">
-                                      Reservations
-                                    </th>
-                                    <th className="p-1 pr-5 text-right font-medium uppercase md:p-2 md:pr-8">
-                                      Tx
-                                    </th>
-                                  </tr>
-                                  <tr className="hover:bg-neutral-300/10">
-                                    <td className="py-2 px-1 md:px-2 border-t border-black/5 md:pl-4">
-                                      <span className="">
-                                        2024/6/5 21:36:02
-                                      </span>
-                                    </td>
-                                    <td className="border-t border-black/5 px-1 py-2 md:px-2">
-                                      0.004
-                                    </td>
-                                    <td className="hidden border-t border-black/5 px-1 py-2 md:table-cell md:px-2">
-                                      $227.33
-                                    </td>
-                                    <td className="border-t border-black/5 px-1 py-2 md:px-2">
-                                      <span>1x </span>
-                                      <span className="rounded bg-cyan-100/70 px-1 py-0.5 text-cyan-600">
-                                        BTC wallet
-                                      </span>
-                                    </td>
-                                    <td className="border-t border-black/5 px-1 py-2 text-right md:px-2">
-                                      <span className="">
-                                        <a
-                                          href="https://mempool.space/tx/696c28d474b21623d0ae46a17ec8a43260a6606f7f9478c677b5bea5aba5ab80"
-                                          target="_blank"
-                                          className="rounded hover:bg-neutral-300/30 md:px-2 md:py-1"
-                                        >
-                                          view
-                                          <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="24"
-                                            height="24"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            stroke="currentColor"
-                                            stroke-width="2"
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            className="lucide lucide-arrow-up-right relative -top-0.5 ml-0.5 inline-block size-3"
-                                          >
-                                            <path d="M7 7h10v10"></path>
-                                            <path d="M7 17 17 7"></path>
-                                          </svg>
-                                        </a>
-                                      </span>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td className="py-1.5 pt-2 px-1 md:px-2 border-t-2 border-black/10 uppercase md:pl-4">
-                                      Total unconfirmed
-                                    </td>
-                                    <td
-                                      colspan="4"
-                                      className="border-t-2 border-black/10 px-1 py-1.5 pt-2 md:px-2"
-                                    >
-                                      0
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td className="py-1.5 px-1 md:px-2 uppercase md:pl-4">
-                                      Total confirmed
-                                    </td>
-                                    <td
-                                      colspan="4"
-                                      className="px-1 py-1.5 md:px-2"
-                                    >
-                                      0.004
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td className="py-1.5 px-1 md:px-2 uppercase md:pl-4">
-                                      Total Bid
-                                    </td>
-                                    <td
-                                      colspan="4"
-                                      className="px-1 py-1.5 md:px-2"
-                                    >
-                                      0.004
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                            </td>
-                          </tr>
-                        )} */}
                         <tr>
-                          <td className="border-y bg-red-700">
+                          <td colSpan={6} className="border-y bg-red-700">
                             <div className="text-center text-xs font-medium uppercase text-white">
                               cut-off
                             </div>
